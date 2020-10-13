@@ -1,2 +1,6 @@
 ^\.Rproj\.user$
 ^\.github$
+^.*\.Rproj$
+^yourPkg\.Rproj$
+^LICENSE\.md$
+^README\.Rmd$
