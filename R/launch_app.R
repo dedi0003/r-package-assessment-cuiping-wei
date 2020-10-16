@@ -1,3 +1,9 @@
+#' Launch shiny app
+#'
+#' @return
+#'
+#' @import shiny
+#'
 #' @export
 launch_app <- function() {
   appDir <- system.file("inst", "app", package = "covid19")
