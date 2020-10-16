@@ -1,0 +1,22 @@
+---
+title: "Shiny app - COVID-19 Gloabl Cases"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Shiny app - COVID-19 Gloabl Cases}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(covid19)
+```
+
+
+# There should be a vignette that describes how to launch the app, what the app does, and guidelines for its use.
