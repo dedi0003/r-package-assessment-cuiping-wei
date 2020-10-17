@@ -1,20 +1,26 @@
-#' Title
+#' Input module
 #'
-#' @param df first data
-#' @param df1 second data
-#' @param ID ID
-#' @param label label
-#' @param type Iuput type
+#' @description This function used to create a input module for Shiny app.
+#' Only can be used in the built-in Shiny app in `covid19` package.
 #'
-#' @return
+#'
+#' @param df The first data used in function.
+#' @param df1 The second data used in function.
+#' @param label The label name of input module.
+#' @param type Iuput module type.
+#' @param inputID The input module ID.
+#'
+#'
+#' @return Input module
+#'
+#'
 #' @export
-input_type <- function(type,df=NULL, df1 = NULL, ID,label){
+input_type <- function(type, df=NULL, df1 = NULL, inputID, label){
   type <- enquo(type)
-  #z <- enquo(z)
 
   if (!!quo_name(type) == "pickerInput"){
     shinyWidgets::pickerInput(
-      inputId = ID,
+      inputId = inputID,
       label = label,
       choices = unique(df$country),
       selected = df1$country[c(1:8)],
@@ -26,7 +32,7 @@ input_type <- function(type,df=NULL, df1 = NULL, ID,label){
   }
   else if(!!quo_name(type) == "dateRangeInput"){
     shiny::dateRangeInput(
-      inputId = ID,
+      inputId = inputID,
       label = label,
       start = min(df$date),
       end   = max(df$date),
@@ -37,7 +43,7 @@ input_type <- function(type,df=NULL, df1 = NULL, ID,label){
   }
   else if(!!quo_name(type) == "sliderInput"){
     shiny::sliderInput(
-      inputId = ID,
+      inputId = inputID,
       label = label,
       min = min(df$date),
       max = max(df$date),
@@ -48,7 +54,7 @@ input_type <- function(type,df=NULL, df1 = NULL, ID,label){
   }
   else{
     shiny::selectInput(
-      inputId = ID,
+      inputId = inputID,
       label = label,
       choices = list(
         "Confirmed",

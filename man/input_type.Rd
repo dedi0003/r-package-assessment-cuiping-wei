@@ -2,24 +2,25 @@
 % Please edit documentation in R/input_type.R
 \name{input_type}
 \alias{input_type}
-\title{Title}
+\title{Input module}
 \usage{
-input_type(type, df = NULL, df1 = NULL, ID, label)
+input_type(type, df = NULL, df1 = NULL, inputID, label)
 }
 \arguments{
-\item{type}{Iuput type}
+\item{type}{Iuput module type.}
 
-\item{df}{first data}
+\item{df}{The first data used in function.}
 
-\item{df1}{second data}
+\item{df1}{The second data used in function.}
 
-\item{ID}{ID}
+\item{inputID}{The input module ID.}
 
-\item{label}{label}
+\item{label}{The label name of input module.}
 }
 \value{
-
+Input module
 }
 \description{
-Title
+This function used to create a input module for Shiny app.
+Only can be used in the built-in Shiny app in \code{covid19} package.
 }
