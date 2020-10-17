@@ -2,18 +2,31 @@
 % Please edit documentation in R/page.R
 \name{page}
 \alias{page}
-\title{Title}
+\title{Shiny dashboard page}
 \usage{
 page(title, body)
 }
 \arguments{
-\item{title}{page title}
+\item{title}{The title of dashboard page}
 
-\item{body}{page-body}
+\item{body}{The dashboard body content}
 }
 \value{
-
+Shiny dashboard page
 }
 \description{
-Title
+This function creates a shiny dashboard page for using in Shiny app.
+}
+\examples{
+body <- dashboardBody()
+if (interactive()) {
+ # Basic dashboard page
+ library(shiny)
+ shinyApp(
+   ui = page("Example", body),
+   server = function(input, output) { }
+ )
+}
+
+
 }
