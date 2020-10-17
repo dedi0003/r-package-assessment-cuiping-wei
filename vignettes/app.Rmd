@@ -1,6 +1,8 @@
 ---
 title: "Shiny app - COVID-19 Gloabl Cases"
 output: rmarkdown::html_vignette
+resouce_files:
+  - images/
 vignette: >
   %\VignetteIndexEntry{Shiny app - COVID-19 Gloabl Cases}
   %\VignetteEngine{knitr::rmarkdown}
@@ -74,12 +76,12 @@ To obtain the latest data, you can use `update_dataset()` function.
 
 You can find a brief statistical overview for cases on this app.
 
-> ![](images/Picture 1.png)
+> ![](images/Picture1.png)
 
 
 If you want to see how COVID-19 cases have changed in countries around the world since the outbreak began or over a certain period, you can use Date Slider to select a date range and show the animation on a map. Also, you can choose the variables you want to explore, such as confirmed, death, recovered and active.  
 
-> ![](images/Picture 2png.png)
+> ![](images/Picture2.png)
 
 <br>
 
@@ -87,31 +89,31 @@ If you want to see how COVID-19 cases have changed in countries around the world
 
 There are three graphs and one table in visualization page, all of which can be updated by user input.
  
-> ![](images/Picture 3.png)
+> ![](images/Picture3.png)
 
 <br>
 
 You can select the country you are interested in the above input panel and explore them in the bar chart, which will provide you with a visualization of the total confirmed cases in your chosen country.
 
-> ![](images/Picture 4.png)
+> ![](images/Picture4.png)
 
 <br>
 
 You can click on the above bar chart to see which countries you would like to explore further, and then the following line chart will be updated by your chosen country. The line chart shows the number of confirmed cases, recovered cases, and deaths on a logarithmic scale over time.  
 
-> ![](images/Picture 5.png)
+> ![](images/Picture5.png)
 
 <br>
 
 You can explore the comparison of confirmed rates and mortality rates between different countries.  
 
-> ![](images/Picture 6.png)
+> ![](images/Picture6.png)
 
 <br>
 
 You can find statistical values, the specific number of cases, and the rates of cases in the Summary Table.  
 
-> ![](images/Picture 7.png)
+> ![](images/Picture7.png)
 
 
 
