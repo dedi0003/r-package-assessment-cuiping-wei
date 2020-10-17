@@ -1,24 +1,48 @@
-#' Title
+#' Highchart plot
 #'
-#' @description This function is to produce highchart plot
+#' @description This function creates a interactive highchart plot,
+#' which can be rendered by Shiny app.
 #'
-#' @param df The data
-#' @param x The date of COVID19 cases
-#' @param ylabs y label
-#' @param title plot title
-#' @param y The varible you interested
-#' @param xlabs x label
 #'
-#' @return plot
+#' @param df The data used in producing highchart plot
+#' @param x A date vector
+#' @param ylabs The label name of yAxis
+#' @param title The title of plot
+#' @param y A character vector
+#' @param group A discrete variable
+#' @param xlabs The label name of xAxis
+#'
+#'
+#' @importFrom rlang enquo
+#' @importFrom rlang quo_name
+#' @import highcharter
+#'
+#'
+#' @return Highchart plot
+#'
+#'
+#'
+#' @examples
+#'
+#' library(coronavirus)
+#' data("coronavirus")
+#' data <- coronavirus %>%
+#'         filter(date >= '2020-10-01' & date <= '2020-10-15') %>%
+#'         filter(country %in% c("Afghanistan", "Liberia", "Austria")) %>%
+#'         filter(type == "confirmed")
+#'
+#' plot_highchart(df = data, x = date, y = cases, group = country, ylabs = 'Confirmed cases',
+#'                xlabs = 'Date', title = 'Highchart plot for COVID-19')
+#'
 #'
 #' @export
-plot_highchart <- function(df,x, y, z,  ylabs, xlabs, title){
+plot_highchart <- function(df,x, y, group,  ylabs, xlabs, title){
   x <- enquo(x)
   y <- enquo(y)
-  z <- enquo(z)
+  group <- enquo(group)
   data <- df
   highchart() %>%
-    hc_add_series(data, "line", hcaes(x = !!quo_name(x), y = !!quo_name(y), group = !!quo_name(z))) %>%
+    hc_add_series(data, "line", hcaes(x = !!quo_name(x), y = !!quo_name(y), group = !!quo_name(group))) %>%
     hc_yAxis(title = list(text = ylabs)) %>%
     hc_xAxis(type = "datetime",
              dateTimeLabelFormats = list(date = '%d/%m/%y'),

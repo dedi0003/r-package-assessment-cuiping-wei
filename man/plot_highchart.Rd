@@ -2,26 +2,43 @@
 % Please edit documentation in R/plot_highchart.R
 \name{plot_highchart}
 \alias{plot_highchart}
-\title{Title}
+\title{Highchart plot}
 \usage{
-plot_highchart(df, x, y, z, ylabs, xlabs, title)
+plot_highchart(df, x, y, group, ylabs, xlabs, title)
 }
 \arguments{
-\item{df}{The data}
+\item{df}{The data used in producing highchart plot}
 
-\item{x}{The date of COVID19 cases}
+\item{x}{A date vector}
 
-\item{y}{The varible you interested}
+\item{y}{A character vector}
 
-\item{ylabs}{y label}
+\item{group}{A discrete variable}
 
-\item{xlabs}{x label}
+\item{ylabs}{The label name of yAxis}
 
-\item{title}{plot title}
+\item{xlabs}{The label name of xAxis}
+
+\item{title}{The title of plot}
 }
 \value{
-plot
+Highchart plot
 }
 \description{
-This function is to produce highchart plot
+This function creates a interactive highchart plot,
+which can be rendered by Shiny app.
+}
+\examples{
+
+library(coronavirus)
+data("coronavirus")
+data <- coronavirus \%>\%
+        filter(date >= '2020-10-01' & date <= '2020-10-15') \%>\%
+        filter(country \%in\% c("Afghanistan", "Liberia", "Austria")) \%>\%
+        filter(type == "confirmed")
+
+plot_highchart(df = data, x = date, y = cases, group = country, ylabs = 'Confirmed cases',
+               xlabs = 'Date', title = 'Highchart plot for COVID-19')
+
+
 }
