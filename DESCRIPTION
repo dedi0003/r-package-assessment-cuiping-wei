@@ -1,19 +1,34 @@
 Package: covid19
-Title: What the Package Does (One Line, Title Case)
 Version: 0.0.0.9000
+Title: COVID-19 Global Cases 
+Description: To write R function to reduce code duplication and optimize 
+     Shiny app -- "COVID-19 Global Cases". You can launch the app by using 
+     `covid19` package, which provides an overview of the COVID-19 epidemic.
 Authors@R: 
     person(given = "Cuiping",
            family = "Wei",
            role = c("aut", "cre"),
            email = "cwei0018@student.monash.edu",
            comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
 License: GPL-3
 Encoding: UTF-8
+BugReports: https://github.com/etc5523-2020/r-package-assessment-cuiping-wei/issues
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Depends: 
-    R (>= 4.0.1)
+    R (>= 4.0)
 Imports: 
-    shiny
+    shiny,
+    dplyr,
+    rlang,
+    highcharter,
+    shinyWidgets,
+    shinydashboard,
+    vctrs,
+    htmltools
+Suggests: 
+    testthat,
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
