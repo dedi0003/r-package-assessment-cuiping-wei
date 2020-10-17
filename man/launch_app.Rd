@@ -7,8 +7,8 @@
 launch_app()
 }
 \value{
-
+Shiny app -- COVID-19 Global Cases
 }
 \description{
-Launch shiny app
+This function can be used to launch shiny app in package.
 }
