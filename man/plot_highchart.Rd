@@ -29,13 +29,13 @@ This function creates a interactive highchart plot,
 which can be rendered by Shiny app.
 }
 \examples{
-library(tidyverse)
+library(magrittr)
 library(coronavirus)
 data("coronavirus")
 data <- coronavirus \%>\%
-        filter(date >= '2020-10-01' & date <= '2020-10-15') \%>\%
-        filter(country \%in\% c("Afghanistan", "Liberia", "Austria")) \%>\%
-        filter(type == "confirmed")
+        dplyr::filter(date >= '2020-10-10') \%>\%
+        dplyr::filter(country \%in\% c("Afghanistan", "Liberia", "Austria")) \%>\%
+        dplyr::filter(type == "confirmed")
 
 plot_highchart(df = data, x = date, y = cases, group = country, ylabs = 'Confirmed cases',
                xlabs = 'Date', title = 'Highchart plot for COVID-19')
