@@ -27,17 +27,18 @@ body_map <- dashboardBody(
         width = 12,
         style = 'padding:0px;'
       ),
-      
+
       column(
-        sliderInput(
-          "timeSlider",
-          label = "Select date",
-          min = min(covid_pop$date), 
-          max = max(covid_pop$date), 
-          value = max(covid_pop$date), 
-          width = "100%",
-          animate = animationOptions(loop = FALSE, interval = 250),
-          timeFormat = "%d.%m.%Y"),
+        input_type(sliderInput, df=covid_pop, ID="timeSlider", label = "Select date"),
+        # sliderInput(
+        #   "timeSlider",
+        #   label = "Select date",
+        #   min = min(covid_pop$date),
+        #   max = max(covid_pop$date),
+        #   value = max(covid_pop$date),
+        #   width = "100%",
+        #   animate = animationOptions(loop = FALSE, interval = 250),
+        #   timeFormat = "%d.%m.%Y"),
         class = "slider",
         width = 12,
         style = 'padding-left:20px; padding-right:20px;'
@@ -46,10 +47,11 @@ body_map <- dashboardBody(
   )
 
 
-page_map <- dashboardPage(
-  title   = "map",
-  header  = dashboardHeader(disable = TRUE),
-  sidebar = dashboardSidebar(disable = TRUE),
-  body    = body_map
-)
+# page_map <- dashboardPage(
+#   title   = "map",
+#   header  = dashboardHeader(disable = TRUE),
+#   sidebar = dashboardSidebar(disable = TRUE),
+#   body    = body_map
+# )
 
+page_map <- page("map", body_map)

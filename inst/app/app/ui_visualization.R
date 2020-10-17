@@ -3,26 +3,29 @@ body_plot_table <- dashboardBody(
     sidebarPanel(
       h3("Data visualization"),
       br(),
-      pickerInput(
-        inputId = "country_choice",
-        label = "Comparing mutiple countries", 
-        choices = unique(case_comparison$country),
-        selected = log_data_top$country[c(1:8)],
-        multiple = TRUE,
-        options = list(
-          `actions-box` = TRUE,
-          `live-search` = TRUE,
-          size = 12)),
-            
+      #input_type(picker, case_comparison),
+      input_type(pickerInput, case_comparison, log_data_top, "country_choice", "Comparing mutiple countries"),
+      # pickerInput(
+      #   inputId = "country_choice",
+      #   label = "Comparing mutiple countries",
+      #   choices = unique(case_comparison$country),
+      #   selected = log_data_top$country[c(1:8)],
+      #   multiple = TRUE,
+      #   options = list(
+      #     `actions-box` = TRUE,
+      #     `live-search` = TRUE,
+      #     size = 12)),
+
       br(),
-      dateRangeInput( inputId = "date", 
-                      label = "Select date range",
-                      start = min(case_comparison$date),
-                      end   = max(case_comparison$date),
-                      min = min(case_comparison$date),
-                      max = max(case_comparison$date),
-                      format = "dd-mm-yyyy",
-                      width = "100%"),
+      input_type(dateRangeInput, df = case_comparison, ID="date", label = "Select date range"),
+      # dateRangeInput( inputId = "date",
+      #                 label = "Select date range",
+      #                 start = min(case_comparison$date),
+      #                 end   = max(case_comparison$date),
+      #                 min = min(case_comparison$date),
+      #                 max = max(case_comparison$date),
+      #                 format = "dd-mm-yyyy",
+      #                 width = "100%"),
       br(),
       plotlyOutput("topCountries"),
       br(),
@@ -77,10 +80,10 @@ body_plot_table <- dashboardBody(
       br(),
       HTML("<b>Active rate: </b> Active rate for COVID-19 based on total confirmed cases of each country.")
       ),
-    
+
     mainPanel(
-      
-      
+
+
       fluidRow(
         box(
           title = "Logarithmic scale plot",
@@ -90,24 +93,24 @@ body_plot_table <- dashboardBody(
           column(
             htmltools::div(p("Note: Click the country you are interested in the bar plot on left panel.")),
             width = 12))),
-      
+
       fluidRow(
         box(
           title = "Compare the rates for confirmed cases and mortality",
-          width = 12, 
+          width = 12,
           column(
             offset = 4,
             uiOutput("choice"),
             width = 4,
             style = "float: right; padding: 10px, margin-right: 50px"),
-          
+
           tabPanel("compare rate", highchartOutput("casecompare", width = "100%", height = 500)),
           br(),
           column(
-            htmltools::div(p("Note: Some countries' negative rates are directly related to the current and historical approach taken by these countries to report cases."),  
+            htmltools::div(p("Note: Some countries' negative rates are directly related to the current and historical approach taken by these countries to report cases."),
                            "You can switch the `Confirmed cases rate` to `Mortality rate` and change countries on the left panel to compare the differences between multiple countries."),
             width = 12))),
-      
+
       fluidRow(
         box(
           title = "Summary table",
@@ -115,19 +118,18 @@ body_plot_table <- dashboardBody(
           htmltools::div(div(class = "title",
                              h3("Summary statistic of Covid-19 cases by each country/region"),
                              p("Clich on the columns names to resort the table."))),
-          tabPanel("Summary table", DT::dataTableOutput("summaryTable")),  
+          tabPanel("Summary table", DT::dataTableOutput("summaryTable")),
           br()
           ))
     )))
 
-page_Visualization <- dashboardPage(
-  title   = "Visualization",
-  header  = dashboardHeader(disable = TRUE),
-  sidebar = dashboardSidebar(disable = TRUE),
-  body    = body_plot_table)
+# page_Visualization <- dashboardPage(
+#   title   = "Visualization",
+#   header  = dashboardHeader(disable = TRUE),
+#   sidebar = dashboardSidebar(disable = TRUE),
+#   body    = body_plot_table)
 
 
+page_Visualization <- page("Visualization", body_plot_table)
 
-  
 
- 
