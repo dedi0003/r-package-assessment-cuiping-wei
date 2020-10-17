@@ -1,6 +1,12 @@
-^\.Rproj\.user$
+^covid19\.Rproj\.user$
 ^\.github$
 ^.*\.Rproj$
 ^yourPkg\.Rproj$
 ^LICENSE\.md$
 ^README\.Rmd$
+^doc$
+^Meta$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^\.Rproj\.user$
