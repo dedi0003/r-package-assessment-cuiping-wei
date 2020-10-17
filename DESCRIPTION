@@ -26,7 +26,9 @@ Imports:
     shinyWidgets,
     shinydashboard,
     vctrs,
-    htmltools
+    htmltools,
+    coronavirus,
+    magrittr
 Suggests: 
     testthat,
     knitr,
