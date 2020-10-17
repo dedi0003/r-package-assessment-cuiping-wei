@@ -23,7 +23,7 @@
 #'
 #'
 #' @examples
-#'
+#' library(tidyverse)
 #' library(coronavirus)
 #' data("coronavirus")
 #' data <- coronavirus %>%

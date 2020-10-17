@@ -18,10 +18,11 @@ Shiny dashboard page
 This function creates a shiny dashboard page for using in Shiny app.
 }
 \examples{
+library(shiny)
+library(shinydashboard)
 body <- dashboardBody()
 if (interactive()) {
  # Basic dashboard page
- library(shiny)
  shinyApp(
    ui = page("Example", body),
    server = function(input, output) { }

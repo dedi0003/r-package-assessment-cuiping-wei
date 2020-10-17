@@ -29,7 +29,7 @@ This function creates a interactive highchart plot,
 which can be rendered by Shiny app.
 }
 \examples{
-
+library(tidyverse)
 library(coronavirus)
 data("coronavirus")
 data <- coronavirus \%>\%

@@ -14,10 +14,11 @@
 #'
 #'
 #' @examples
+#' library(shiny)
+#' library(shinydashboard)
 #' body <- dashboardBody()
 #' if (interactive()) {
 #'  # Basic dashboard page
-#'  library(shiny)
 #'  shinyApp(
 #'    ui = page("Example", body),
 #'    server = function(input, output) { }
