@@ -4,7 +4,8 @@ template:
 
 navbar:
   structure:
-    right: [help, github]
+    right: [github]
+    left: [help]
   components:
     home: ~
     help:
@@ -13,3 +14,7 @@ navbar:
     github:
       icon: fa-github fa-lg
       href: https://github.com/etc5523-2020/r-package-assessment-cuiping-wei
+
+authors:
+  Cuiping Wei:
+    href: https://awsome-number-story.netlify.app/
