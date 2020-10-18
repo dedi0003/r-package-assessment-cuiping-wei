@@ -17,7 +17,7 @@ body_plot_table <- dashboardBody(
       #     size = 12)),
 
       br(),
-      input_type(dateRangeInput, df = case_comparison, ID="date", label = "Select date range"),
+      input_type(dateRangeInput, df = case_comparison, inputID="date", label = "Select date range"),
       # dateRangeInput( inputId = "date",
       #                 label = "Select date range",
       #                 start = min(case_comparison$date),
@@ -130,6 +130,6 @@ body_plot_table <- dashboardBody(
 #   body    = body_plot_table)
 
 
-page_Visualization <- page("Visualization", body_plot_table)
+page_Visualization <- ui_page("Visualization", body_plot_table)
 
 

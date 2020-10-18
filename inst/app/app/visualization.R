@@ -1,7 +1,7 @@
 # highchart, plotly and table section
 
 output$choice<-renderUI({
-  input_type(selectInput, ID = "type", label = "Select Variable" )
+  input_type(selectInput, inputID = "type", label = "Select Variable" )
   # selectInput(
   #   inputId = "type",
   #   label = "Select Variable",
@@ -121,7 +121,7 @@ output$log <- renderPlotly({
     scale_y_continuous(trans = "log10")+
     labs(title = paste0("Logarithmic scale for COVID-19 cases in US"),
          x = "Date",
-         # y = "Count") +
+         y = "Count") +
     theme_light()
 
 

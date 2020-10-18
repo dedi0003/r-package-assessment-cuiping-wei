@@ -29,7 +29,7 @@ body_map <- dashboardBody(
       ),
 
       column(
-        input_type(sliderInput, df=covid_pop, ID="timeSlider", label = "Select date"),
+        input_type(sliderInput, df=covid_pop, inputID="timeSlider", label = "Select date"),
         # sliderInput(
         #   "timeSlider",
         #   label = "Select date",
@@ -54,4 +54,4 @@ body_map <- dashboardBody(
 #   body    = body_map
 # )
 
-page_map <- page("map", body_map)
+page_map <- ui_page("map", body_map)

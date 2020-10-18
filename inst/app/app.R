@@ -3,7 +3,7 @@ source("app/dataTidy.R", local = TRUE)
 source("app/ui_map.R", local = TRUE)
 source("app/ui_visualization.R", local = TRUE)
 
-# UI 
+# UI
 ui <- fluidPage(
   title = "COVID-19 Global Cases",
   theme = shinytheme("flatly"),
