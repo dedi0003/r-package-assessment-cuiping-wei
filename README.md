@@ -49,9 +49,9 @@ If you encounter any bugs, please post an issue on
 [Github](https://github.com/etc5523-2020/r-package-assessment-cuiping-wei/issues).
 If you have any questions and suggestions you would like to discuss,
 please feel free to contact me by email
-*(<a href="mailto:cwei0018@student.monash.edu" class="email">cwei0018@student.monash.edu</a>)*.
+(*<a href="mailto:cwei0018@student.monash.edu" class="email">cwei0018@student.monash.edu</a>*).
 
-:smile: Example
+:star2: Example
 ---------------
 
 There are some basic examples which show you how to explore `covid19`
@@ -59,22 +59,10 @@ package:
 
 #### Launch Shiny app
 
-    # launch Shiny app
+    ## launch Shiny app
     library(covid19)
-    #launch_app()
+    launch_app()
 
 #### Creating highchart plot
-
-    library(magrittr)
-    library(dplyr)
-    library(coronavirus)
-    data("coronavirus")
-    data <- coronavirus %>%
-            filter(date >= '2020-10-10') %>%
-            filter(country %in% c("Afghanistan", "Liberia", "Austria")) %>%
-            filter(type == "confirmed")
-
-    plot_highchart(df = data, x = date, y = cases, group = country, ylabs = 'Confirmed cases',
-                   xlabs = 'Date', title = 'COVID-19 confirmed cases')
 
 ![](man/figures/README-highchart-1.png)
