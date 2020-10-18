@@ -1,6 +1,11 @@
 ---
 title: "Shiny app - COVID-19 Gloabl Cases"
-output: rmarkdown::html_vignette
+package: covid19
+author: "Cuiping Wei"
+date: "`r Sys.Date()`"
+abstract:
+  This vignette is to introduce the built-in Shiny app in `covid19` package that details how to launch it, what it does, and guidelines for usage.  
+output: BiocStyle::html_document
 resouce_files:
   - images/
 vignette: >
@@ -11,109 +16,155 @@ vignette: >
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE,
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  fig.path = "images/",
+  out.width = "80%",
+  out.height = "80%"
 )
 ```
 
 ```{r setup}
+library(BiocStyle)
 library(covid19)
 ```
 
-## How to launch this app
 
-### Installation
+# How to launch this Shiny app?
 
-#### Software
+## Installation
+
+### Software
 
 - [R](https://cran.r-project.org/bin/windows/base/)
 - [Rstudio](https://rstudio.com/products/rstudio/download/)(R version 4.0.2)
 
 
-#### Packages
+### Packages
 
-- COVID-19 data packages (Github version)
+- `coronavirus` and `covid19` (Github version)
 
 ``` r
-install.packages("devtools")
+#install.packages("devtools")
 devtools::install_github("RamiKrispin/coronavirus")
+devtools::install_github("etc5523-2020/r-package-assessment-cuiping-wei")
 ```
 
 - Other packages 
 
 ``` r
-install.packages(c("dplyr", "wbstats", "tidyverse", "leaflet", "scales", "shiny", "shinydashboard", "shinyWidgets", "highcharter", "htmltools", "plotly", "DT", "shinythemes", "covid19", "rlang"))
+install.packages(c("dplyr", "wbstats", "tidyverse", "leaflet", "scales", "shiny", "shinydashboard", "shinyWidgets", "highcharter", "htmltools", "plotly", "DT", "shinythemes", "rlang", "magrittr"))
 ```
 
-#### Launch the app
+### Launch the app
 
-You can run this shiny app simply by using the following code: 
+You can launch this shiny app simply by using the following code: 
 
 ```r
 launch_app()
 ```
 
-#### Update data
+### Update data
 
-The [coronavirus](https://github.com/RamiKrispin/coronavirus)(Github version) is updated on a daily bases. The `update_dataset` function can obtain the most recent data from Github, and this function is embeded into this shiny web app. If you want to explore the latest COVID-19 data worldwide, you can choose 'Y' after running the following code.  
+The [coronavirus](https://github.com/RamiKrispin/coronavirus)(Github version) is updated on a daily bases. The `update_dataset` function can obtain the most recent data from Github, and this function is embeded into this shiny app in the package `covid19`. If you want to explore the latest COVID-19 data worldwide, you can choose 'Y' when you get the following tip.
 
 ``` r
-update_dataset(silence = FALSE)
+Updates are available on the coronavirus Dev version, do you want to update? n/Y
 ```
 
 **Note:** R session will be restarted to obtain the latest data.
 
-
-## What it does?
-
-This Shiny web app is mainly for updating real-time data of COVID-19, simple visualization and comparison of different countries with graphs and table, rather than comprehensive analyses or model prediction. Next, I'm going to give you a brief overview of what this app does.  
-
-- **Update data**
-
-To obtain the latest data, you can use `update_dataset()` function.  
-
-- **Global COVID-19 overview**
-
-You can find a brief statistical overview for cases on this app.
-
-> ![](images/Picture1.png)
+<hr>
 
 
-If you want to see how COVID-19 cases have changed in countries around the world since the outbreak began or over a certain period, you can use Date Slider to select a date range and show the animation on a map. Also, you can choose the variables you want to explore, such as confirmed, death, recovered and active.  
+# What this Shiny app does?
 
-> ![](images/Picture2.png)
+This Shiny app is mainly for updating real-time data of COVID-19, simple visualization with interaction and comparison of different countries with graphs and table, rather than comprehensive analyses or model prediction. 
+<br>
+There are three sections in this Shiny app as shown below:
+
+- Map: Using ValueBoxes to show the total number of cases, and using map and slider to animate the daily cases for confirmed, deaths, recovered and active.
+
+- Visualization: Allowing users to use different input modules to explore plots and table.
+
+- About: Providing the story and data source of this app.
+
+
+<hr>
+
+# Guidelines
+
+## Map
+
+You can find a brief statistical overview for global COVID-19 cases on this app, as shown in Figure \@ref(fig:plot1).
+
+```{r plot1, fig.cap= 'Statistical overview for global COVID-19 cases'}
+knitr::include_graphics('images/Picture1.png')
+```
+
+<br>
+If you want to see how COVID-19 cases have changed in countries around the world since the outbreak began or over a certain period, you can use Date Slider to select a date range and show the animation on a map. Also, you can choose the variables you want to explore, such as confirmed, death, recovered and active, as shown in Figure \@ref(fig:plot2).
+
+
+```{r plot2, fig.cap= 'Dynamic map for global COVID-19 cases'}
+knitr::include_graphics('images/Picture2.png')
+```
+
 
 <br>
 
-- **Visualization**
+## Visualization
 
-There are three graphs and one table in visualization page, all of which can be updated by user input.
- 
-> ![](images/Picture3.png)
+There are three graphs and one table in visualization page, all of which can be updated by user input(Figure \@ref(fig:plot3)).
 
-<br>
+```{r plot3, fig.cap= 'Input modules for Shiny app'}
+knitr::include_graphics('images/Picture3.png')
+```
 
-You can select the country you are interested in the above input panel and explore them in the bar chart, which will provide you with a visualization of the total confirmed cases in your chosen country.
-
-> ![](images/Picture4.png)
 
 <br>
 
-You can click on the above bar chart to see which countries you would like to explore further, and then the following line chart will be updated by your chosen country. The line chart shows the number of confirmed cases, recovered cases, and deaths on a logarithmic scale over time.  
+On Figure \@ref(fig:plot4), you can select the country you are interested in the above input panel and explore them in the bar chart, which will provide you with a visualization of the total confirmed cases in your chosen country.
 
-> ![](images/Picture5.png)
-
-<br>
-
-You can explore the comparison of confirmed rates and mortality rates between different countries.  
-
-> ![](images/Picture6.png)
+```{r plot4, fig.cap= 'Bar chart for total confirmed cases'}
+knitr::include_graphics('images/Picture4.png')
+```
 
 <br>
 
-You can find statistical values, the specific number of cases, and the rates of cases in the Summary Table.  
+You can click on the above bar chart to see which countries you would like to explore further, and then the following line chart will be updated by your chosen country. The line chart shows the number of confirmed cases, recovered cases, and deaths on a logarithmic scale over time, as shown in Figure \@ref(fig:plot5).  
 
-> ![](images/Picture7.png)
+```{r plot5, fig.cap= 'Line chart for COVID-19 cases on a logarithmic scale over time'}
+knitr::include_graphics('images/Picture5.png')
+```
+
+
+<br>
+
+You can explore the comparison of confirmed rates and mortality rates between different countries, as shown in Figure \@ref(fig:plot6).   
+
+```{r plot6, fig.cap= 'Confirmed rates and mortality rates between different countries'}
+knitr::include_graphics('images/Picture6.png')
+```
+
+
+<br>
+
+You can find statistical values, the specific number of cases, and the rates of cases in the Summary Table, as shown in Figure \@ref(fig:plot7).  
+
+```{r plot7, fig.cap= 'Confirmed rates and mortality rates between different countries'}
+knitr::include_graphics('images/Picture7.png')
+```
+
+
+# Session info {.unnumbered}
+
+```{r}
+sessionInfo()
+```
 
 
 
