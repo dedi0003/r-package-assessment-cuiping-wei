@@ -9,7 +9,7 @@ Authors@R:
            family = "Wei",
            role = c("aut", "cre"),
            email = "cwei0018@student.monash.edu",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
+           comment = c(ORCID = "0000-0002-8061-1017"))
 License: GPL-3
 Encoding: UTF-8
 BugReports: https://github.com/etc5523-2020/r-package-assessment-cuiping-wei/issues
