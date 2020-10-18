@@ -20,14 +20,14 @@
 #' if (interactive()) {
 #'  # Basic dashboard page
 #'  shinyApp(
-#'    ui = page("Example", body),
+#'    ui = ui_page("Example", body),
 #'    server = function(input, output) { }
 #'  )
 #' }
 #'
 #'
 #' @export
-page <- function(title, body){
+ui_page <- function(title, body){
   shinydashboard::dashboardPage(
     title = title,
     header  = shinydashboard::dashboardHeader(disable = TRUE),
