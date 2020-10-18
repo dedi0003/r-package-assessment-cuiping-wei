@@ -1,4 +1,4 @@
-#' Input module
+#' Shiny input module
 #'
 #' @description This function used to create a input module for Shiny app.
 #' Only can be used in the built-in Shiny app in `covid19` package.
