@@ -1,7 +1,7 @@
 ^covid19\.Rproj\.user$
 ^\.github$
 ^.*\.Rproj$
-^yourPkg\.Rproj$
+^covid19\.Rproj$
 ^LICENSE\.md$
 ^README\.Rmd$
 ^doc$
