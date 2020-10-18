@@ -1,15 +1,19 @@
-test_that("plot_highchart", {
-    df <- vctrs::data_frame(
-      x = c('2020-05-01', '2020-06-15', '2020-07-30', '2020-08-01', '2020-9-15', '2020-09-30',
-            '2020-05-01', '2020-06-15', '2020-07-30', '2020-08-01', '2020-09-15', '2020-09-30'),
-      y = c(2000,3000,2000,4000,5000,9000, 1000, 1000, 500, 300, 300, 200),
-      z = c("US", "US", "US", "US", "US", "US", "UK", "UK", "UK", "UK", "UK", "UK")
-    ) %>%
-      dplyr::mutate(x = as.Date(x))
-    p <- plot_highchart(df, x, y, z, ylabs = 'Date', xlabs = 'Count', title = 'Highchart')
+context("Highchart plot")
 
-    expect_error(plot_highchart(df), "No expression to parse")
-    expect_error(plot_highchart(df,x, y), "No expression to parse")
+test_that("plot_highchart", {
+    library(magrittr)
+    library(coronavirus)
+    data("coronavirus")
+    data <- coronavirus %>%
+      dplyr::filter(date >= '2020-10-10') %>%
+      dplyr::filter(country %in% c("Afghanistan", "Liberia", "Austria")) %>%
+      dplyr::filter(type == "confirmed")
+
+    p <- plot_highchart(df = data, x = date, y = cases, group = country, ylabs = 'Confirmed cases',
+                        xlabs = 'Date', title = 'Highchart plot for COVID-19')
+
+    expect_error(plot_highchart(data), "No expression to parse")
+    expect_error(plot_highchart(data, date, cases), "No expression to parse")
     expect_error(p, NA)
     expect_true(is.highchart(p))
     expect_message(p, NA)
