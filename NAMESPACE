@@ -2,8 +2,8 @@
 
 export(input_type)
 export(launch_app)
-export(page)
 export(plot_highchart)
+export(ui_page)
 import(highcharter)
 import(shiny)
 import(shinydashboard)

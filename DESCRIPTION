@@ -25,7 +25,6 @@ Imports:
     highcharter,
     shinyWidgets,
     shinydashboard,
-    vctrs,
     htmltools,
     coronavirus,
     magrittr
