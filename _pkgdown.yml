@@ -1,10 +1,10 @@
 template:
   params:
-      bootswatch: darkly
+      bootswatch: flatly
 
 navbar:
   structure:
-    right: [github]
+    right: [github,blog]
     left: [help]
   components:
     home: ~
@@ -14,7 +14,19 @@ navbar:
     github:
       icon: fa-github fa-lg
       href: https://github.com/etc5523-2020/r-package-assessment-cuiping-wei
+    blog:
+      icon: fa-blog fa-lg
+      href: https://awsome-number-story.netlify.app/
 
-authors:
-  Cuiping Wei:
-    href: https://awsome-number-story.netlify.app/
+reference:
+- title: "Launching Shiny app"
+  contents:
+  - launch_app
+- title: "Functions for Shiny UI"
+  contents:
+  - input_type
+  - ui_page
+  - valuebox
+- title: "Functions for Shiny server"
+  contents:
+  - plot_highchart
