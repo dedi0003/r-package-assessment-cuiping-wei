@@ -15,10 +15,10 @@ map <- leaflet() %>%
 
   observe({
     req(input$timeSlider)
-    data_date<- date_filter(input$timeSlider) %>% 
-      filter(!is.na(long) & !is.na(lat)) %>% 
+    data_date<- date_filter(input$timeSlider) %>%
+      filter(!is.na(long) & !is.na(lat)) %>%
       drop_na()
-    
+
     leafletProxy("map", data = data_date) %>%
       clearMarkers() %>%
       addCircleMarkers(
@@ -56,16 +56,17 @@ map <- leaflet() %>%
         color        = "#CD96CD",
         fillOpacity  = 0.5,
         group        = "Active"
-      ) 
+      )
   })
 
-  
-  
+
+
 # ValueBox section
 
 output$value_confirmed <- renderValueBox({
   valueBox(paste(format(total_value$confirmed, big.mark = ","), "", sep=" "), "Total confirmed cases", color = "blue")
 })
+
 
 output$value_recovered<- renderValueBox({
   valueBox(paste(format(total_value$recovered,  big.mark = ","), "", sep=" "), "Total recovered cases", color = "olive")

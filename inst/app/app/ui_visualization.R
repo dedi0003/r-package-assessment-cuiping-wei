@@ -3,29 +3,9 @@ body_plot_table <- dashboardBody(
     sidebarPanel(
       h3("Data visualization"),
       br(),
-      #input_type(picker, case_comparison),
       input_type(pickerInput, case_comparison, log_data_top, "country_choice", "Comparing mutiple countries"),
-      # pickerInput(
-      #   inputId = "country_choice",
-      #   label = "Comparing mutiple countries",
-      #   choices = unique(case_comparison$country),
-      #   selected = log_data_top$country[c(1:8)],
-      #   multiple = TRUE,
-      #   options = list(
-      #     `actions-box` = TRUE,
-      #     `live-search` = TRUE,
-      #     size = 12)),
-
       br(),
       input_type(dateRangeInput, df = case_comparison, inputID="date", label = "Select date range"),
-      # dateRangeInput( inputId = "date",
-      #                 label = "Select date range",
-      #                 start = min(case_comparison$date),
-      #                 end   = max(case_comparison$date),
-      #                 min = min(case_comparison$date),
-      #                 max = max(case_comparison$date),
-      #                 format = "dd-mm-yyyy",
-      #                 width = "100%"),
       br(),
       plotlyOutput("topCountries"),
       br(),
@@ -101,7 +81,7 @@ body_plot_table <- dashboardBody(
           column(
             offset = 4,
             uiOutput("choice"),
-            width = 4,
+            width = 3,
             style = "float: right; padding: 10px, margin-right: 50px"),
 
           tabPanel("compare rate", highchartOutput("casecompare", width = "100%", height = 500)),
@@ -122,12 +102,6 @@ body_plot_table <- dashboardBody(
           br()
           ))
     )))
-
-# page_Visualization <- dashboardPage(
-#   title   = "Visualization",
-#   header  = dashboardHeader(disable = TRUE),
-#   sidebar = dashboardSidebar(disable = TRUE),
-#   body    = body_plot_table)
 
 
 page_Visualization <- ui_page("Visualization", body_plot_table)

@@ -2,15 +2,6 @@
 
 output$choice<-renderUI({
   input_type(selectInput, inputID = "type", label = "Select Variable" )
-  # selectInput(
-  #   inputId = "type",
-  #   label = "Select Variable",
-  #   choices = list(
-  #     "Confirmed",
-  #     "Mortality"),
-  #   selected = "Confirmed",
-  #   multiple = FALSE
-  # )
 })
 
 ## hightchart for confirmed cases rate and mortality rate
@@ -31,40 +22,10 @@ output$casecompare <- renderHighchart({
     plot_highchart(data, date, Confirmed, country, "Confirmed cases rate", "Date",
                    "COVID-19 confirmed cases rate per million by country")
 
-    # highchart() %>%
-    #   hc_add_series(data, "line",
-    #                 hcaes(x = date, y = `Confirmed cases rate`, group = country)) %>%
-    #   hc_yAxis(title = list(text = "Confirmed cases rate")) %>%
-    #   hc_xAxis(type = "datetime",
-    #            dateTimeLabelFormats = list(date = '%d/%m/%y'),
-    #            title = list(text = "Date")) %>%
-    #   hc_title(text = "COVID-19 confirmed cases rate per million by country",
-    #            style = list(color = "black", useHTML = TRUE)) %>%
-    #   hc_tooltip(crosshairs = TRUE,
-    #              backgroundColor = "#FCFFC5",
-    #              shared = TRUE,
-    #              borderWidth = 5,
-    #              table = T)
-
     }
   else{
     plot_highchart(data, date, Mortality, country, "Mortality rate", "Date",
                    "COVID-19 mortality rate per million by country")
-
-    # highchart() %>%
-    #   hc_add_series(data, "line",
-    #                 hcaes(x = date, y = `Mortality rate`, group = country)) %>%
-    #   hc_yAxis(title = list(text = "Mortality rate")) %>%
-    #   hc_xAxis(type = "datetime",
-    #            dateTimeLabelFormats = list(date = '%d/%m/%y'),
-    #            title = list(text = "Date")) %>%
-    #   hc_title(text = "COVID-19 mortality rate per million by country",
-    #            style = list(color = "black", useHTML = TRUE)) %>%
-    #   hc_tooltip(crosshairs = TRUE,
-    #              backgroundColor = "#FCFFC5",
-    #              shared = TRUE,
-    #              borderWidth = 5,
-    #              table = T)
   }
 })
 
