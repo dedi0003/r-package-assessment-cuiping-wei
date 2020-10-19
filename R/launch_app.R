@@ -6,6 +6,10 @@
 #'
 #' @import shiny
 #'
+#' @examples
+#' library(covid19)
+#' #launch_app()
+#'
 #'
 #' @export
 launch_app <- function() {

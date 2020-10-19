@@ -2,7 +2,7 @@
 % Please edit documentation in R/input_type.R
 \name{input_type}
 \alias{input_type}
-\title{Input module}
+\title{Shiny input module}
 \usage{
 input_type(type, df = NULL, df1 = NULL, inputID, label)
 }

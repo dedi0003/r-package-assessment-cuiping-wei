@@ -7,19 +7,15 @@
 #' @param body The dashboard body content
 #'
 #'
-#' @import shinydashboard
-#'
-#'
 #' @return Shiny dashboard page
 #'
 #'
 #' @examples
-#' library(shiny)
-#' library(shinydashboard)
-#' body <- dashboardBody()
+#'
+#' body <- shinydashboard::dashboardBody()
 #' if (interactive()) {
 #'  # Basic dashboard page
-#'  shinyApp(
+#'  shiny::shinyApp(
 #'    ui = ui_page("Example", body),
 #'    server = function(input, output) { }
 #'  )

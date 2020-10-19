@@ -12,3 +12,9 @@ Shiny app -- COVID-19 Global Cases
 \description{
 This function can be used to launch shiny app in package.
 }
+\examples{
+library(covid19)
+#launch_app()
+
+
+}
