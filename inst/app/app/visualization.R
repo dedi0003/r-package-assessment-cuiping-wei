@@ -68,23 +68,7 @@ output$click <- renderPrint({
 output$log <- renderPlotly({
 
   # default plot
-
-  default_plot<-log_data %>%
-    filter(country == "US") %>%
-    ggplot(aes(x =date))+
-    geom_line(aes(y = confirmed, color = "Confirmed"))+
-    geom_line(aes(y = recovered, color = "Recovered")) +
-    geom_line(aes(y = death, color = "Deaths")) +
-    scale_color_manual(breaks = c("Confirmed", "Deaths", "Recovered"),
-                       values = c("black", "red", "steelblue")) +
-    scale_x_date(date_breaks = "1 month",
-                 date_labels = "%b") +
-    scale_y_continuous(trans = "log10")+
-    labs(title = paste0("Logarithmic scale for COVID-19 cases in US"),
-         x = "Date",
-         y = "Count") +
-    theme_light()
-
+  default_plot <- plot_linechart(log_data, "US")
 
   d_plot<-
     ggplotly(default_plot) %>%
@@ -97,21 +81,7 @@ output$log <- renderPlotly({
 
 
   # plot for event data
-  line_plot<-log_data %>%
-    filter(country %in% d$x) %>%   #change input from event_data click
-    ggplot(aes(x =date))+
-    geom_line(aes(y = confirmed, color = "Confirmed"))+
-    geom_line(aes(y = recovered, color = "Recovered")) +
-    geom_line(aes(y = death, color = "Deaths")) +
-    scale_color_manual(breaks = c("Confirmed", "Deaths", "Recovered"),
-                       values = c("black", "red", "steelblue")) +
-    scale_x_date(date_breaks = "1 month",
-                 date_labels = "%b") +
-    scale_y_continuous(trans = "log10")+
-    labs(title = paste0("Logarithmic scale for COVID-19 cases in ", d$x),
-         x = "Date",
-         y = "Count") +
-    theme_light()
+  line_plot <- plot_linechart(log_data, d$x)
 
   ggplotly(line_plot) %>%
     layout(legend = list(orientation = "h", y = -0.3)) %>%
