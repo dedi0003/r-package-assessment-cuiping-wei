@@ -3,8 +3,8 @@
 #' @description This function creates a shiny dashboard page for using in Shiny app.
 #'
 #'
-#' @param title The title of dashboard page
-#' @param body The dashboard body content
+#' @param title The title of dashboard page.
+#' @param body The dashboard body content.
 #'
 #'
 #' @return Shiny dashboard page

@@ -1,16 +1,16 @@
-#' Highchart plot
+#' Highchart
 #'
 #' @description This function creates a interactive highchart plot,
 #' which can be rendered by Shiny app.
 #'
 #'
-#' @param df The data used in producing highchart plot
-#' @param x A date vector
-#' @param ylabs The label name of yAxis
-#' @param title The title of plot
-#' @param y A character vector
-#' @param group A discrete variable
-#' @param xlabs The label name of xAxis
+#' @param df The data used in producing highchart.
+#' @param x A date vector.
+#' @param ylabs The label name of yAxis.
+#' @param title The title of plot.
+#' @param y A character vector.
+#' @param group A discrete variable.
+#' @param xlabs The label name of xAxis.
 #'
 #'
 #' @importFrom rlang enquo
@@ -21,13 +21,14 @@
 #'
 #'
 #'
-#' @return Highchart plot
+#' @return Highchart
 #'
 #'
 #'
 #' @examples
 #' library(magrittr)
 #' library(coronavirus)
+#'
 #' data("coronavirus")
 #' data <- coronavirus %>%
 #'         dplyr::filter(date >= '2020-10-10') %>%
@@ -35,7 +36,7 @@
 #'         dplyr::filter(type == "confirmed")
 #'
 #' plot_highchart(df = data, x = date, y = cases, group = country, ylabs = 'Confirmed cases',
-#'                xlabs = 'Date', title = 'Highchart plot for COVID-19')
+#'                xlabs = 'Date', title = 'Highchart for COVID-19')
 #'
 #'
 #' @export

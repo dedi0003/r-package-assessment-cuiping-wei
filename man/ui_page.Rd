@@ -7,9 +7,9 @@
 ui_page(title, body)
 }
 \arguments{
-\item{title}{The title of dashboard page}
+\item{title}{The title of dashboard page.}
 
-\item{body}{The dashboard body content}
+\item{body}{The dashboard body content.}
 }
 \value{
 Shiny dashboard page
