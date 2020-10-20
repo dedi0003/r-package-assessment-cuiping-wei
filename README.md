@@ -14,11 +14,13 @@ status](https://github.com/etc5523-2020/r-package-assessment-cuiping-wei/workflo
 ---------------
 
 The `covid19` package provides an overview of the COVID-19 epidemic with
-built-in Shiny app `COVID-19 Global Cases`, which can help user to get
-some insights about the development of COVID-19 quikly. Also, there are
-some built-in functions that may allow you to make some changes for
-built-in Shiny app. You can learn more about them in
-vignette(“covid19”).
+built-in Shiny app `COVID-19 Global Cases`, which can help the user to
+get some insights about the development of COVID-19 quickly. Also, some
+built-in functions may allow you to make some changes for the built-in
+Shiny app. You can learn more about them in
+[vignette](https://etc5523-2020.github.io/r-package-assessment-cuiping-wei/).
+
+![](man/figures/README-COVID-19.png)
 
 :house: Installation
 --------------------
@@ -39,8 +41,14 @@ with:
 -   `launch_app()` to launch built-in Shiny app.  
 -   `ui_page()` to create a shiny dashboard page for using in Shiny
     app.  
+-   `valuebox()` to output Shiny valueBox.
 -   `input_type()` to create a input module for Shiny app.  
 -   `plot_highchart()` to create a interactive highchart plot.
+-   `plot_linechart()` to create a line plot.
+
+If you would like to have a tutorial for using this Shiny App, please
+visit this
+[article](https://etc5523-2020.github.io/r-package-assessment-cuiping-wei/articles/app.html).
 
 :hand: Getting help
 -------------------
@@ -64,5 +72,20 @@ package:
     launch_app()
 
 #### Creating highchart plot
+
+    ## create a highchart plot
+    library(magrittr)
+    library(dplyr)
+    library(coronavirus)
+    library(covid19)
+
+    data("coronavirus")
+    data <- coronavirus %>%
+            filter(date >= '2020-10-10') %>%
+            filter(country %in% c("Afghanistan", "Liberia", "Austria")) %>%
+            filter(type == "confirmed")
+
+    plot_highchart(df = data, x = date, y = cases, group = country, ylabs = 'Confirmed cases',
+                   xlabs = 'Date', title = 'COVID-19 confirmed cases')
 
 ![](man/figures/README-highchart-1.png)
