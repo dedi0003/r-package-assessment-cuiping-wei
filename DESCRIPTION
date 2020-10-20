@@ -17,17 +17,25 @@ LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Depends: 
-    R (>= 4.0)
+    R (>= 3.6)
 Imports: 
     shiny,
     dplyr,
+    tidyr,
     rlang,
     highcharter,
     shinyWidgets,
     shinydashboard,
     htmltools,
     coronavirus,
-    magrittr
+    DT,
+    leaflet,
+    scales,
+    shinythemes,
+    wbstats,
+    magrittr,
+    plotly,
+    ggplot2
 Suggests: 
     testthat,
     knitr,
