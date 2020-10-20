@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Shiny dashboard page — ui_page • covid19</title>
+<title>Linechart — plot_linechart • covid19</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Shiny dashboard page — ui_page" />
-<meta property="og:description" content="This function creates a shiny dashboard page for using in Shiny app." />
+<meta property="og:title" content="Linechart — plot_linechart" />
+<meta property="og:description" content="This function creates a line chart." />
 
 
 
@@ -123,44 +123,47 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Shiny dashboard page</h1>
-    <small class="dont-index">Source: <a href='https://github.com/etc5523-2020/r-package-assessment-cuiping-wei/blob/master/R/ui_page.R'><code>R/ui_page.R</code></a></small>
-    <div class="hidden name"><code>ui_page.Rd</code></div>
+    <h1>Linechart</h1>
+    <small class="dont-index">Source: <a href='https://github.com/etc5523-2020/r-package-assessment-cuiping-wei/blob/master/R/plot_linechart.R'><code>R/plot_linechart.R</code></a></small>
+    <div class="hidden name"><code>plot_linechart.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function creates a shiny dashboard page for using in Shiny app.</p>
+    <p>This function creates a line chart.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>ui_page</span><span class='op'>(</span><span class='va'>title</span>, <span class='va'>body</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>plot_linechart</span><span class='op'>(</span><span class='va'>df</span>, <span class='va'>var</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>title</th>
-      <td><p>The title of dashboard page.</p></td>
+      <th>df</th>
+      <td><p>The data used in producing line chart.</p></td>
     </tr>
     <tr>
-      <th>body</th>
-      <td><p>The dashboard body content.</p></td>
+      <th>var</th>
+      <td><p>A character vector.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Shiny dashboard page</p>
+    <p>Linechart</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='va'>body</span> <span class='op'>&lt;-</span> <span class='fu'>shinydashboard</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/shinydashboard/man/dashboardBody.html'>dashboardBody</a></span><span class='op'>(</span><span class='op'>)</span>
-<span class='kw'>if</span> <span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>{</span>
- <span class='co'># Basic dashboard page</span>
- <span class='fu'>shiny</span><span class='fu'>::</span><span class='fu'><a href='https://shiny.rstudio.com/reference/shiny/latest/shinyApp.html'>shinyApp</a></span><span class='op'>(</span>
-   ui <span class='op'>=</span> <span class='fu'>ui_page</span><span class='op'>(</span><span class='st'>"Example"</span>, <span class='va'>body</span><span class='op'>)</span>,
-   server <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>input</span>, <span class='va'>output</span><span class='op'>)</span> <span class='op'>{</span> <span class='op'>}</span>
- <span class='op'>)</span>
-<span class='op'>}</span>
+    <pre class="examples"><div class='input'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>magrittr</span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/RamiKrispin/coronavirus'>coronavirus</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span>
+
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"coronavirus"</span><span class='op'>)</span>
+<span class='va'>data</span> <span class='op'>&lt;-</span> <span class='va'>coronavirus</span> <span class='op'>%&gt;%</span>
+ <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>date</span> <span class='op'>&gt;=</span> <span class='st'>'2020-09-10'</span> <span class='op'>&amp;</span> <span class='va'>date</span> <span class='op'>&lt;=</span> <span class='st'>'2020-10-10'</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+ <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>country</span> <span class='op'>%in%</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"US"</span>, <span class='st'>"India"</span>, <span class='st'>"Austria"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+ <span class='fu'>tidyr</span><span class='fu'>::</span><span class='fu'><a href='https://tidyr.tidyverse.org/reference/pivot_wider.html'>pivot_wider</a></span><span class='op'>(</span>names_from <span class='op'>=</span> <span class='va'>type</span>, values_from <span class='op'>=</span> <span class='va'>cases</span><span class='op'>)</span>
+
+ <span class='fu'>plot_linechart</span><span class='op'>(</span><span class='va'>data</span>, <span class='st'>"US"</span><span class='op'>)</span>
+</div><div class='img'><img src='plot_linechart-1.png' alt='' width='700' height='433' /></div><div class='input'>
 
 
 </div></pre>

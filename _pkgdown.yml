@@ -30,3 +30,4 @@ reference:
 - title: "Functions for Shiny server"
   contents:
   - plot_highchart
+  - plot_linechart

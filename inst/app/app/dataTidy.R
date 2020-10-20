@@ -13,7 +13,6 @@ library(htmltools)
 library(plotly)
 library(DT)
 library(shinythemes)
-library(covid19)
 select <- dplyr::select
 
 
