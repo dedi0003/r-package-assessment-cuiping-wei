@@ -1,12 +1,14 @@
 context("Shiny dashboard page")
 
+library(shiny)
+library(shinydashboard)
 test_that("ui_page", {
   body_map <- shinydashboard::dashboardBody(
     shinydashboard::tabItem("map",
-            fluidRow(
+             shiny::fluidRow(
               shinydashboard::box(title ="Data updated on 2020-10-18"),
                   width = 12,
-                  column(
+                  shiny::column(
                     htmltools::div(p("Statistical values of COVID-19")),
                     width = 12))))
 

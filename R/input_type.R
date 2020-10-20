@@ -49,7 +49,7 @@ input_type <- function(type, df=NULL, df1 = NULL, inputID, label){
       max = max(df$date),
       value = max(df$date),
       width = "100%",
-      animate = animationOptions(loop = FALSE, interval = 250),
+      animate = shiny::animationOptions(loop = FALSE, interval = 250),
       timeFormat = "%d.%m.%Y")
   }
   else{

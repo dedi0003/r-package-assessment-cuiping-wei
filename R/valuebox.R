@@ -1,5 +1,7 @@
 #' Shiny ValueBox output
 #'
+#' @description This function can be used to putput valueBox in Shiny app.
+#'
 #' @param ID The ID of valueBox.
 #' @param width The width of valueBox.
 #'

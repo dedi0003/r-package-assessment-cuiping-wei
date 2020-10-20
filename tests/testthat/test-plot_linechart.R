@@ -3,9 +3,10 @@ context("Linechart")
 test_that("Linechart", {
   library(magrittr)
   library(coronavirus)
-  library(tidyverse)
+  library(ggplot2)
   library(tidyr)
   library(dplyr)
+
   data("coronavirus")
   data <- coronavirus %>%
     filter(date >= '2020-10-10') %>%

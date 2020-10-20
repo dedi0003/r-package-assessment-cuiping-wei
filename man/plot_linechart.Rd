@@ -7,7 +7,7 @@
 plot_linechart(df, var)
 }
 \arguments{
-\item{df}{The data used in producing linechart.}
+\item{df}{The data used in producing line chart.}
 
 \item{var}{A character vector.}
 }
@@ -15,7 +15,7 @@ plot_linechart(df, var)
 Linechart
 }
 \description{
-This function creates a linechart.
+This function creates a line chart.
 }
 \examples{
 library(magrittr)
@@ -24,11 +24,11 @@ library(ggplot2)
 
 data("coronavirus")
 data <- coronavirus \%>\%
- dplyr::filter(date >= '2020-10-10') \%>\%
- dplyr::filter(country \%in\% c("France", "India", "Austria")) \%>\%
+ dplyr::filter(date >= '2020-09-10' & date <= '2020-10-10') \%>\%
+ dplyr::filter(country \%in\% c("US", "India", "Austria")) \%>\%
  tidyr::pivot_wider(names_from = type, values_from = cases)
 
- plot_linechart(data, "India")
+ plot_linechart(data, "US")
 
 
 

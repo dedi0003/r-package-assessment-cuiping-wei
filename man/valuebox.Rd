@@ -15,5 +15,5 @@ valuebox(ID, width)
 ValueBox
 }
 \description{
-Shiny ValueBox output
+This function can be used to putput valueBox in Shiny app.
 }
