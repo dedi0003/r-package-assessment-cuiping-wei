@@ -45,6 +45,7 @@ with:
 -   `input_type()` to create a input module for Shiny app.  
 -   `plot_highchart()` to create a interactive highchart plot.
 -   `plot_linechart()` to create a line plot.
+-   `pop_data` to obtain 2019 population data for 221 countries.
 
 If you would like to have a tutorial for using this Shiny App, please
 visit this
@@ -65,6 +66,21 @@ please feel free to contact me by email
 There are some basic examples which show you how to explore `covid19`
 package:
 
+#### Population data
+
+    library(covid19)
+    library(magrittr)
+    pop_data %>% 
+      head(5)
+    #> # A tibble: 5 x 2
+    #>   country     population
+    #>   <chr>            <dbl>
+    #> 1 Aruba           106314
+    #> 2 Afghanistan   38041754
+    #> 3 Angola        31825295
+    #> 4 Albania        2854191
+    #> 5 Andorra          77142
+
 #### Launch Shiny app
 
     ## launch Shiny app
@@ -81,7 +97,7 @@ package:
 
     data("coronavirus")
     data <- coronavirus %>%
-            filter(date >= '2020-10-10') %>%
+            filter(date >= '2020-10-10' & date <= '2020-10-16') %>%
             filter(country %in% c("Afghanistan", "Liberia", "Austria")) %>%
             filter(type == "confirmed")
 
