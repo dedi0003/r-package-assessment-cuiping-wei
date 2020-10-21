@@ -18,6 +18,7 @@
 #'
 #'
 #' @examples
+#' \dontrun{
 #' library(magrittr)
 #' library(coronavirus)
 #' library(ggplot2)
@@ -29,7 +30,7 @@
 #'  tidyr::pivot_wider(names_from = type, values_from = cases)
 #'
 #'  plot_linechart(data, date, confirmed, recovered, death)
-#'
+#'}
 #'
 #'
 #' @export
