@@ -4,12 +4,10 @@
 \alias{plot_linechart}
 \title{Linechart}
 \usage{
-plot_linechart(df, var, date, y1, y2, y3)
+plot_linechart(df, date, y1, y2, y3)
 }
 \arguments{
 \item{df}{The data used in producing line chart.}
-
-\item{var}{A character vector.}
 
 \item{date}{A date vector.}
 
@@ -33,10 +31,10 @@ library(ggplot2)
 data("coronavirus")
 data <- coronavirus \%>\%
  dplyr::filter(date >= '2020-09-10' & date <= '2020-10-10') \%>\%
- dplyr::filter(country \%in\% c("US", "India", "Austria")) \%>\%
+ dplyr::filter(country == "US") \%>\%
  tidyr::pivot_wider(names_from = type, values_from = cases)
 
- plot_linechart(data, "US", date, confirmed, recovered, death)
+ plot_linechart(data, date, confirmed, recovered, death)
 
 
 

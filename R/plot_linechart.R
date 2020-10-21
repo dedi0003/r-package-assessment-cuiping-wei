@@ -3,7 +3,6 @@
 #' @description This function creates a line chart.
 #'
 #' @param df The data used in producing line chart.
-#' @param var A character vector.
 #' @param date A date vector.
 #' @param y1 The first y variable.
 #' @param y2 The second y variable.
@@ -26,22 +25,16 @@
 #' data("coronavirus")
 #' data <- coronavirus %>%
 #'  dplyr::filter(date >= '2020-09-10' & date <= '2020-10-10') %>%
-#'  dplyr::filter(country %in% c("US", "India", "Austria")) %>%
+#'  dplyr::filter(country == "US") %>%
 #'  tidyr::pivot_wider(names_from = type, values_from = cases)
 #'
-#'  plot_linechart(data, "US", date, confirmed, recovered, death)
+#'  plot_linechart(data, date, confirmed, recovered, death)
 #'
 #'
 #'
 #' @export
-plot_linechart <- function(df, var, date, y1, y2, y3){
-  # confirmed <- df[[confirmed]]
-  # recovered <- df[[recovered]]
-  # death <- df[[death]]
-
-  df %>%
-    filter(country == {{var}}) %>%
-    ggplot(aes(x ={{date}}))+
+plot_linechart <- function(df, date, y1, y2, y3){
+    ggplot2::ggplot(df, aes(x = {{date}}))+
     geom_line(aes(y = {{y1}}, color = "Confirmed"))+
     geom_line(aes(y = {{y2}}, color = "Recovered")) +
     geom_line(aes(y = {{y3}}, color = "Deaths")) +
@@ -50,7 +43,7 @@ plot_linechart <- function(df, var, date, y1, y2, y3){
     scale_x_date(date_breaks = "1 month",
                  date_labels = "%b") +
     scale_y_continuous(trans = "log10")+
-    labs(title = paste0("Logarithmic scale for COVID-19 cases in ", var),
+    labs(title = paste0("Logarithmic scale for COVID-19 cases in ", df$country),
          x = "Date",
          y = "Count") +
     theme_light()

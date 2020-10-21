@@ -68,7 +68,8 @@ output$click <- renderPrint({
 output$log <- renderPlotly({
 
   # default plot
-  default_plot <- plot_linechart(log_data, "US", date, confirmed, recovered, death)
+  log_us <- log_data %>% filter(country == "US")
+  default_plot <- plot_linechart(log_us, date, confirmed, recovered, death)
 
   d_plot<-
     ggplotly(default_plot) %>%
@@ -81,7 +82,8 @@ output$log <- renderPlotly({
 
 
   # plot for event data
-  line_plot <- plot_linechart(log_data, d$x,date, confirmed, recovered, death)
+  log_x <- log_data %>% filter(country == d$x)
+  line_plot <- plot_linechart(log_x,date, confirmed, recovered, death)
 
   ggplotly(line_plot) %>%
     layout(legend = list(orientation = "h", y = -0.3)) %>%
