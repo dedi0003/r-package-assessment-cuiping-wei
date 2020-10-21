@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>COVID-19 Global Cases  • covid19</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/darkly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
 <script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
@@ -65,6 +65,12 @@
      
   </a>
 </li>
+<li>
+  <a href="https://awsome-number-story.netlify.app/">
+    <span class="fa fa-blog fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
 </div>
 <!--/.nav-collapse -->
@@ -81,36 +87,97 @@
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#covid19" class="anchor"></a>covid19</h1></div>
 <!-- badges: start -->
-<!-- badges: end -->
-<p>The goal of covid19 is to …</p>
-<div id="installation" class="section level2">
+
+<div id="-overview" class="section level2">
 <h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
-<p>You can install the released version of covid19 from <a href="https://CRAN.R-project.org">CRAN</a> with:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">install.packages</span>(<span class="st">"covid19"</span>)</span></code></pre></div>
-<p>And the development version from <a href="https://github.com/">GitHub</a> with:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># install.packages("devtools")</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a>devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"etc5523-2020/r-package-assessment-cuiping-wei"</span>)</span></code></pre></div>
+<a href="#-overview" class="anchor"></a><span class="emoji" data-emoji="book">📖</span> Overview</h2>
+<p>The <code>covid19</code> package provides an overview of the COVID-19 epidemic with built-in Shiny app <code>COVID-19 Global Cases</code>, which can help the user to get some insights about the development of COVID-19 quickly. Also, some built-in functions may allow you to make some changes for the built-in Shiny app. You can learn more about them in <a href="https://etc5523-2020.github.io/r-package-assessment-cuiping-wei/">vignette</a>.</p>
+<p><img src="reference/figures/README-COVID-19.png"></p>
 </div>
-<div id="example" class="section level2">
+<div id="-installation" class="section level2">
 <h2 class="hasAnchor">
-<a href="#example" class="anchor"></a>Example</h2>
-<p>This is a basic example which shows you how to solve a common problem:</p>
+<a href="#-installation" class="anchor"></a><span class="emoji" data-emoji="house">🏠</span> Installation</h2>
+<p>You can get the development <code>covid19</code> from <a href="https://github.com/">GitHub</a> with:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># install.packages("devtools")</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"etc5523-2020/r-package-assessment-cuiping-wei"</span>)</span></code></pre></div>
+</div>
+<div id="-usage" class="section level2">
+<h2 class="hasAnchor">
+<a href="#-usage" class="anchor"></a><span class="emoji" data-emoji="art">🎨</span> Usage</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">library</span>(covid19)</span></code></pre></div>
+<p><code>covid19</code> package has the following functions:</p>
+<ul>
+<li>
+<code><a href="reference/launch_app.html">launch_app()</a></code> to launch built-in Shiny app.<br>
+</li>
+<li>
+<code><a href="reference/ui_page.html">ui_page()</a></code> to create a shiny dashboard page for using in Shiny app.<br>
+</li>
+<li>
+<code><a href="reference/valuebox.html">valuebox()</a></code> to output Shiny valueBox.</li>
+<li>
+<code><a href="reference/input_type.html">input_type()</a></code> to create a input module for Shiny app.<br>
+</li>
+<li>
+<code><a href="reference/plot_highchart.html">plot_highchart()</a></code> to create a interactive highchart plot.</li>
+<li>
+<code><a href="reference/plot_linechart.html">plot_linechart()</a></code> to create a line plot.</li>
+<li>
+<code>pop_data</code> to obtain 2019 population data for 221 countries.</li>
+</ul>
+<p>If you would like to have a tutorial for using this Shiny App, please visit this <a href="https://etc5523-2020.github.io/r-package-assessment-cuiping-wei/articles/app.html">article</a>.</p>
+</div>
+<div id="-getting-help" class="section level2">
+<h2 class="hasAnchor">
+<a href="#-getting-help" class="anchor"></a><span class="emoji" data-emoji="hand">✋</span> Getting help</h2>
+<p>If you encounter any bugs, please post an issue on <a href="https://github.com/etc5523-2020/r-package-assessment-cuiping-wei/issues">Github</a>. If you have any questions and suggestions you would like to discuss, please feel free to contact me by email (<em><a href="mailto:cwei0018@student.monash.edu" class="email">cwei0018@student.monash.edu</a></em>).</p>
+</div>
+<div id="-example" class="section level2">
+<h2 class="hasAnchor">
+<a href="#-example" class="anchor"></a><span class="emoji" data-emoji="star2">🌟</span> Example</h2>
+<p>There are some basic examples which show you how to explore <code>covid19</code> package:</p>
+<div id="population-data" class="section level4">
+<h4 class="hasAnchor">
+<a href="#population-data" class="anchor"></a>Population data</h4>
 <div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">library</span>(covid19)</span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="co">## basic example code</span></span></code></pre></div>
-<p>What is special about using <code>README.Rmd</code> instead of just <code>README.md</code>? You can include R chunks like so:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">summary</span>(cars)</span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="co">#&gt;      speed           dist       </span></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="co">#&gt;  Min.   : 4.0   Min.   :  2.00  </span></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="co">#&gt;  1st Qu.:12.0   1st Qu.: 26.00  </span></span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="co">#&gt;  Median :15.0   Median : 36.00  </span></span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="co">#&gt;  Mean   :15.4   Mean   : 42.98  </span></span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="co">#&gt;  3rd Qu.:19.0   3rd Qu.: 56.00  </span></span>
-<span id="cb4-8"><a href="#cb4-8"></a><span class="co">#&gt;  Max.   :25.0   Max.   :120.00</span></span></code></pre></div>
-<p>You’ll still need to render <code>README.Rmd</code> regularly, to keep <code>README.md</code> up-to-date.</p>
-<p>You can also embed plots, for example:</p>
-<p><img src="reference/figures/README-pressure-1.png" width="100%"></p>
-<p>In that case, don’t forget to commit and push the resulting figure files, so they display on GitHub!</p>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="kw">library</span>(magrittr)</span>
+<span id="cb3-3"><a href="#cb3-3"></a>pop_data <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="st">  </span><span class="kw">head</span>(<span class="dv">5</span>)</span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="co">#&gt; # A tibble: 5 x 2</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="co">#&gt;   country     population</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="co">#&gt;   &lt;chr&gt;            &lt;dbl&gt;</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="co">#&gt; 1 Aruba           106314</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="co">#&gt; 2 Afghanistan   38041754</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a><span class="co">#&gt; 3 Angola        31825295</span></span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="co">#&gt; 4 Albania        2854191</span></span>
+<span id="cb3-12"><a href="#cb3-12"></a><span class="co">#&gt; 5 Andorra          77142</span></span></code></pre></div>
+</div>
+<div id="launch-shiny-app" class="section level4">
+<h4 class="hasAnchor">
+<a href="#launch-shiny-app" class="anchor"></a>Launch Shiny app</h4>
+<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">## launch Shiny app</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="kw">library</span>(covid19)</span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="kw">launch_app</span>()</span></code></pre></div>
+</div>
+<div id="creating-highchart-plot" class="section level4">
+<h4 class="hasAnchor">
+<a href="#creating-highchart-plot" class="anchor"></a>Creating highchart plot</h4>
+<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">## create a highchart plot</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="kw">library</span>(magrittr)</span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="kw">library</span>(coronavirus)</span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="kw">library</span>(covid19)</span>
+<span id="cb5-6"><a href="#cb5-6"></a></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="kw">data</span>(<span class="st">"coronavirus"</span>)</span>
+<span id="cb5-8"><a href="#cb5-8"></a>data &lt;-<span class="st"> </span>coronavirus <span class="op">%&gt;%</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a><span class="st">        </span><span class="kw">filter</span>(date <span class="op">&gt;=</span><span class="st"> '2020-10-10'</span> <span class="op">&amp;</span><span class="st"> </span>date <span class="op">&lt;=</span><span class="st"> '2020-10-16'</span>) <span class="op">%&gt;%</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a><span class="st">        </span><span class="kw">filter</span>(country <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">"Afghanistan"</span>, <span class="st">"Liberia"</span>, <span class="st">"Austria"</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a><span class="st">        </span><span class="kw">filter</span>(type <span class="op">==</span><span class="st"> "confirmed"</span>)</span>
+<span id="cb5-12"><a href="#cb5-12"></a></span>
+<span id="cb5-13"><a href="#cb5-13"></a><span class="kw">plot_highchart</span>(<span class="dt">df =</span> data, <span class="dt">x =</span> date, <span class="dt">y =</span> cases, <span class="dt">group =</span> country, <span class="dt">ylabs =</span> <span class="st">'Confirmed cases'</span>,</span>
+<span id="cb5-14"><a href="#cb5-14"></a>               <span class="dt">xlabs =</span> <span class="st">'Date'</span>, <span class="dt">title =</span> <span class="st">'COVID-19 confirmed cases'</span>)</span></code></pre></div>
+<p><img src="reference/figures/README-highchart-1.png"></p>
+</div>
 </div>
 </div>
   </div>
@@ -135,17 +202,22 @@
 <div class="developers">
 <h2>Developers</h2>
 <ul class="list-unstyled">
-<li>
-<a href="https://awsome-number-story.netlify.app/">Cuiping Wei</a> <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-8061-1017" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Cuiping Wei <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-8061-1017" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 </ul>
 </div>
 
-  </div>
+  <div class="dev-status">
+<h2>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://github.com/etc5523-2020/r-package-assessment-cuiping-wei/actions"><img src="https://github.com/etc5523-2020/r-package-assessment-cuiping-wei/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
+</ul>
+</div>
+</div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by <a href="https://awsome-number-story.netlify.app/">Cuiping Wei</a>.</p>
+  <p>Developed by Cuiping Wei.</p>
 </div>
 
 <div class="pkgdown">

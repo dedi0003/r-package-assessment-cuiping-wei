@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shiny app - COVID-19 Gloabl Cases • covid19</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/darkly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/flatly/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
@@ -63,6 +63,12 @@
      
   </a>
 </li>
+<li>
+  <a href="https://awsome-number-story.netlify.app/">
+    <span class="fa fa-blog fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
 </div>
 <!--/.nav-collapse -->
@@ -73,11 +79,14 @@
 
       
 
-      </header><script src="app_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><script src="app_files/accessible-code-block-0.0.1/empty-anchor.js"></script><link href="app_files/anchor-sections-1.0/anchor-sections.css" rel="stylesheet">
+<script src="app_files/anchor-sections-1.0/anchor-sections.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Shiny app - COVID-19 Gloabl Cases</h1>
+                        <h4 class="author">Cuiping Wei</h4>
             
+            <h4 class="date">2020-10-21</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/etc5523-2020/r-package-assessment-cuiping-wei/blob/master/vignettes/app.Rmd"><code>vignettes/app.Rmd</code></a></small>
       <div class="hidden name"><code>app.Rmd</code></div>
@@ -86,105 +95,169 @@
 
     
     
-<div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">covid19</span><span class="op">)</span>
-<span class="co">#&gt; Registered S3 method overwritten by 'quantmod':</span>
-<span class="co">#&gt;   method            from</span>
-<span class="co">#&gt;   as.zoo.data.frame zoo</span></pre></div>
-<div id="how-to-launch-this-app" class="section level2">
+<p>This vignette is to introduce the built-in Shiny app in <code>covid19</code> package that details how to launch it, what it does, and guidelines for usage.</p>
+<div id="how-to-launch-this-shiny-app" class="section level2">
 <h2 class="hasAnchor">
-<a href="#how-to-launch-this-app" class="anchor"></a>How to launch this app</h2>
+<a href="#how-to-launch-this-shiny-app" class="anchor"></a>How to launch this Shiny app?</h2>
 <div id="installation" class="section level3">
 <h3 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h3>
-<div id="software" class="section level4">
-<h4 class="hasAnchor">
-<a href="#software" class="anchor"></a>Software</h4>
 <ul>
-<li><a href="https://cran.r-project.org/bin/windows/base/">R</a></li>
 <li>
-<a href="https://rstudio.com/products/rstudio/download/">Rstudio</a>(R version 4.0.2)</li>
+<code>coronavirus</code> and <code>covid19</code> (Github version)</li>
 </ul>
-</div>
-<div id="packages" class="section level4">
-<h4 class="hasAnchor">
-<a href="#packages" class="anchor"></a>Packages</h4>
-<ul>
-<li>COVID-19 data packages (Github version)</li>
-</ul>
-<div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span>
-<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"RamiKrispin/coronavirus"</span><span class="op">)</span></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit">
+<span class="co">#install.packages("devtools")</span>
+<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"RamiKrispin/coronavirus"</span><span class="op">)</span>
+<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"etc5523-2020/r-package-assessment-cuiping-wei"</span><span class="op">)</span></pre></div>
 <ul>
 <li>Other packages</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"dplyr"</span>, <span class="st">"wbstats"</span>, <span class="st">"tidyverse"</span>, <span class="st">"leaflet"</span>, <span class="st">"scales"</span>, <span class="st">"shiny"</span>, <span class="st">"shinydashboard"</span>, <span class="st">"shinyWidgets"</span>, <span class="st">"highcharter"</span>, <span class="st">"htmltools"</span>, <span class="st">"plotly"</span>, <span class="st">"DT"</span>, <span class="st">"shinythemes"</span>, <span class="st">"covid19"</span>, <span class="st">"rlang"</span><span class="op">)</span><span class="op">)</span></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"dplyr"</span>, <span class="st">"wbstats"</span>, <span class="st">"tidyverse"</span>, <span class="st">"leaflet"</span>, <span class="st">"scales"</span>, <span class="st">"shiny"</span>, <span class="st">"shinydashboard"</span>, <span class="st">"shinyWidgets"</span>, <span class="st">"highcharter"</span>, <span class="st">"htmltools"</span>, <span class="st">"plotly"</span>, <span class="st">"DT"</span>, <span class="st">"shinythemes"</span>, <span class="st">"rlang"</span>, <span class="st">"magrittr"</span><span class="op">)</span><span class="op">)</span></pre></div>
 </div>
+<div id="usage" class="section level3">
+<h3 class="hasAnchor">
+<a href="#usage" class="anchor"></a>Usage</h3>
 <div id="launch-the-app" class="section level4">
 <h4 class="hasAnchor">
 <a href="#launch-the-app" class="anchor"></a>Launch the app</h4>
-<p>You can run this shiny app simply by using the following code:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit">
+<p>You can launch this shiny app simply by using the following code:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit">
 <span class="fu"><a href="../reference/launch_app.html">launch_app</a></span><span class="op">(</span><span class="op">)</span></pre></div>
 </div>
 <div id="update-data" class="section level4">
 <h4 class="hasAnchor">
 <a href="#update-data" class="anchor"></a>Update data</h4>
-<p>The <a href="https://github.com/RamiKrispin/coronavirus">coronavirus</a>(Github version) is updated on a daily bases. The <code>update_dataset</code> function can obtain the most recent data from Github, and this function is embeded into this shiny web app. If you want to explore the latest COVID-19 data worldwide, you can choose ‘Y’ after running the following code.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/pkg/coronavirus/man/update_dataset.html">update_dataset</a></span><span class="op">(</span>silence <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></pre></div>
+<p>The <a href="https://github.com/RamiKrispin/coronavirus">coronavirus</a>(Github version) is updated on a daily bases. The <code>update_dataset</code> function can obtain the most recent data from Github, and this function is embedded into this shiny app in the package <code>covid19</code>. If you want to explore the latest COVID-19 data worldwide, you can choose ‘Y’ when you get the following tip.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>Updates are available on the coronavirus Dev version, do you want to update? n<span class="op">/</span>Y</span></code></pre></div>
 <p><strong>Note:</strong> R session will be restarted to obtain the latest data.</p>
+<hr>
 </div>
 </div>
 </div>
-<div id="what-it-does" class="section level2">
+<div id="what-this-shiny-app-does" class="section level2">
 <h2 class="hasAnchor">
-<a href="#what-it-does" class="anchor"></a>What it does?</h2>
-<p>This Shiny web app is mainly for updating real-time data of COVID-19, simple visualization and comparison of different countries with graphs and table, rather than comprehensive analyses or model prediction. Next, I’m going to give you a brief overview of what this app does.</p>
+<a href="#what-this-shiny-app-does" class="anchor"></a>What this Shiny app does?</h2>
+<p>This Shiny app is mainly for updating real-time data of COVID-19, simple visualization with interaction and comparison of different countries with graphs and table, rather than comprehensive analyses or model prediction. <br> There are three sections in this Shiny app, as shown below:</p>
 <ul>
-<li><strong>Update data</strong></li>
+<li><p>Map: Using ValueBoxes to show the total number of cases, and using map and slider to animate the daily cases for confirmed, deaths, recovered and active.</p></li>
+<li><p>Visualization: Allowing users to use different input modules to explore plots and table.</p></li>
+<li><p>About: Providing the story and data source of this app.</p></li>
 </ul>
-<p>To obtain the latest data, you can use <code><a href="https://rdrr.io/pkg/coronavirus/man/update_dataset.html">update_dataset()</a></code> function.</p>
-<ul>
-<li><strong>Global COVID-19 overview</strong></li>
-</ul>
-<p>You can find a brief statistical overview for cases on this app.</p>
-<blockquote>
-<p><img src="images/Picture1.png"></p>
-</blockquote>
-<p>If you want to see how COVID-19 cases have changed in countries around the world since the outbreak began or over a certain period, you can use Date Slider to select a date range and show the animation on a map. Also, you can choose the variables you want to explore, such as confirmed, death, recovered and active.</p>
-<blockquote>
-<p><img src="images/Picture2.png"></p>
-</blockquote>
-<p><br></p>
-<ul>
-<li><strong>Visualization</strong></li>
-</ul>
-<p>There are three graphs and one table in visualization page, all of which can be updated by user input.</p>
-<blockquote>
-<p><img src="images/Picture3.png"></p>
-</blockquote>
-<p><br></p>
-<p>You can select the country you are interested in the above input panel and explore them in the bar chart, which will provide you with a visualization of the total confirmed cases in your chosen country.</p>
-<blockquote>
-<p><img src="images/Picture4.png"></p>
-</blockquote>
-<p><br></p>
-<p>You can click on the above bar chart to see which countries you would like to explore further, and then the following line chart will be updated by your chosen country. The line chart shows the number of confirmed cases, recovered cases, and deaths on a logarithmic scale over time.</p>
-<blockquote>
-<p><img src="images/Picture5.png"></p>
-</blockquote>
-<p><br></p>
-<p>You can explore the comparison of confirmed rates and mortality rates between different countries.</p>
-<blockquote>
-<p><img src="images/Picture6.png"></p>
-</blockquote>
-<p><br></p>
-<p>You can find statistical values, the specific number of cases, and the rates of cases in the Summary Table.</p>
-<blockquote>
-<p><img src="images/Picture7.png"></p>
-</blockquote>
+<hr>
+</div>
+<div id="guidelines" class="section level2">
+<h2 class="hasAnchor">
+<a href="#guidelines" class="anchor"></a>Guidelines</h2>
+<div id="map" class="section level3">
+<h3 class="hasAnchor">
+<a href="#map" class="anchor"></a>Map</h3>
+<p>You can find a brief statistical overview for global COVID-19 cases on this app, as shown in Figure 1.</p>
+<center>
+<div class="figure">
+<img src="images/Picture1.png" alt="Figure 1: Statistical overview for global COVID-19 cases" width="80%" height="80%"><p class="caption">
+Figure 1: Statistical overview for global COVID-19 cases
+</p>
+</div>
+</center>
+<br><hr>
+<p>If you want to see how COVID-19 cases have changed in countries around the world since the outbreak began or over a certain period, you can use Date Slider to select a date range and show the animation on a map. Also, you can choose the variables you want to explore, such as confirmed, death, recovered and active, as shown in Figure 2.</p>
+<center>
+<div class="figure">
+<img src="images/Picture2.png" alt="Figure 2: Dynamic map for global COVID-19 cases" width="80%" height="80%"><p class="caption">
+Figure 2: Dynamic map for global COVID-19 cases
+</p>
+</div>
+</center>
+<br><hr>
+</div>
+<div id="visualization" class="section level3">
+<h3 class="hasAnchor">
+<a href="#visualization" class="anchor"></a>Visualization</h3>
+<p>There are three graphs and one table in visualization page, all of which can be updated by user input(Figure 3).</p>
+<center>
+<div class="figure">
+<img src="images/Picture3.png" alt="Figure 3: Input modules for Shiny app" width="80%" height="80%"><p class="caption">
+Figure 3: Input modules for Shiny app
+</p>
+</div>
+</center>
+<br><hr>
+<p>On Figure 4, you can select the country you are interested in the above input panel and explore them in the bar chart, which will provide you with a visualization of the total confirmed cases in your chosen country.</p>
+<center>
+<div class="figure">
+<img src="images/Picture4.png" alt="Figure 4: Bar chart for total confirmed cases" width="80%" height="80%"><p class="caption">
+Figure 4: Bar chart for total confirmed cases
+</p>
+</div>
+</center>
+<br><hr>
+<p>You can click on the above bar chart to see which countries you would like to explore further, and then the following line chart will be updated by your chosen country. The line chart shows the number of confirmed cases, recovered cases, and deaths on a logarithmic scale over time, as shown in Figure 5.</p>
+<center>
+<div class="figure">
+<img src="images/Picture5.png" alt="Figure 5: Line chart for COVID-19 cases on a logarithmic scale over time" width="80%" height="80%"><p class="caption">
+Figure 5: Line chart for COVID-19 cases on a logarithmic scale over time
+</p>
+</div>
+</center>
+<br><hr>
+<p>You can explore the comparison of confirmed rates and mortality rates between different countries, as shown in Figure 6.</p>
+<center>
+<div class="figure">
+<img src="images/Picture6.png" alt="Figur 6: Confirmed rates and mortality rates between different countries" width="80%" height="80%"><p class="caption">
+Figur 6: Confirmed rates and mortality rates between different countries
+</p>
+</div>
+</center>
+<br><hr>
+<p>You can find statistical values, the specific number of cases, and the rates of cases in the Summary Table, as shown in Figure 7.</p>
+<center>
+<div class="figure">
+<img src="images/Picture7.png" alt="Figure 7: Confirmed rates and mortality rates between different countries" width="80%" height="80%"><p class="caption">
+Figure 7: Confirmed rates and mortality rates between different countries
+</p>
+</div>
+</center>
+<hr>
+</div>
+</div>
+<div id="session-info" class="section level2 unnumbered">
+<h2 class="hasAnchor">
+<a href="#session-info" class="anchor"></a>Session info</h2>
+<pre><code>#&gt; R version 4.0.3 (2020-10-10)
+#&gt; Platform: x86_64-apple-darwin17.0 (64-bit)
+#&gt; Running under: macOS Catalina 10.15.7
+#&gt; 
+#&gt; Matrix products: default
+#&gt; BLAS:   /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRblas.dylib
+#&gt; LAPACK: /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRlapack.dylib
+#&gt; 
+#&gt; locale:
+#&gt; [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+#&gt; 
+#&gt; attached base packages:
+#&gt; [1] stats     graphics  grDevices utils     datasets  methods   base     
+#&gt; 
+#&gt; other attached packages:
+#&gt; [1] covid19_0.0.0.9000
+#&gt; 
+#&gt; loaded via a namespace (and not attached):
+#&gt;  [1] Rcpp_1.0.5        highr_0.8         compiler_4.0.3    pillar_1.4.6     
+#&gt;  [5] xts_0.12.1        tools_4.0.3       digest_0.6.26     lattice_0.20-41  
+#&gt;  [9] lubridate_1.7.9   jsonlite_1.7.1    evaluate_0.14     memoise_1.1.0    
+#&gt; [13] lifecycle_0.2.0   tibble_3.0.4      gtable_0.3.0      pkgconfig_2.0.3  
+#&gt; [17] rlang_0.4.8       igraph_1.2.6      curl_4.3          yaml_2.2.1       
+#&gt; [21] pkgdown_1.6.1     xfun_0.18         stringr_1.4.0     dplyr_1.0.2      
+#&gt; [25] knitr_1.30        htmlwidgets_1.5.2 desc_1.2.0        generics_0.0.2   
+#&gt; [29] fs_1.5.0          vctrs_0.3.4       systemfonts_0.3.2 rprojroot_1.3-2  
+#&gt; [33] grid_4.0.3        tidyselect_1.1.0  data.table_1.13.2 glue_1.4.2       
+#&gt; [37] R6_2.4.1          textshaping_0.1.2 rmarkdown_2.5     TTR_0.24.2       
+#&gt; [41] tidyr_1.1.2       ggplot2_3.3.2     purrr_0.3.4       highcharter_0.8.2
+#&gt; [45] magrittr_1.5      backports_1.1.10  scales_1.1.1      htmltools_0.5.0  
+#&gt; [49] ellipsis_0.3.1    rlist_0.4.6.1     quantmod_0.4.17   assertthat_0.2.1 
+#&gt; [53] colorspace_1.4-1  ragg_0.4.0        stringi_1.5.3     munsell_0.5.0    
+#&gt; [57] broom_0.7.2       crayon_1.3.4      zoo_1.8-8</code></pre>
 </div>
   </div>
 
@@ -199,7 +272,7 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by <a href="https://awsome-number-story.netlify.app/">Cuiping Wei</a>.</p>
+  <p>Developed by Cuiping Wei.</p>
 </div>
 
 <div class="pkgdown">
