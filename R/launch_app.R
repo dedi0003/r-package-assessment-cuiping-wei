@@ -5,11 +5,17 @@
 #' @return Shiny app -- COVID-19 Global Cases
 #'
 #' @examples
+#' \dontrun{
 #' library(covid19)
-#' #launch_app()
+#' launch_app()
+#' }
 #'
 #'
 #' @export
 launch_app <- function() {
-  shiny::runApp('inst/app')
+  appDir <- system.file("app", package = "covid19")
+  if (appDir == "") {
+    stop("Could not find shiny app directory. Try re-installing `covid19`.", call. = FALSE)
+  }
+  shiny::runApp(appDir, display.mode = "normal")
 }
