@@ -12,9 +12,8 @@ test_that("Linechart", {
     filter(date >= '2020-10-10') %>%
     filter(country %in% c("France", "India", "Austria")) %>%
     pivot_wider(names_from = type, values_from = cases)
-
-  p <- plot_linechart(data, "India")
+  p <- plot_linechart(data, "India", date, confirmed, recovered, death)
 
   expect_true(is.ggplot(p))
-  expect_error(plot_linechart(data, "Austria"), NA)
+  expect_error(plot_linechart(data, "Austria", date, confirmed, recovered, death), NA)
 })

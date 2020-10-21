@@ -2,7 +2,6 @@
 library(covid19)
 library(coronavirus)
 library(dplyr)
-library(wbstats)
 library(tidyverse)
 library(leaflet)
 library(scales)

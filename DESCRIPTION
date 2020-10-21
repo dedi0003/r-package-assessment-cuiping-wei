@@ -32,7 +32,6 @@ Imports:
     leaflet,
     scales,
     shinythemes,
-    wbstats,
     magrittr,
     plotly,
     ggplot2

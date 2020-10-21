@@ -4,12 +4,20 @@
 \alias{plot_linechart}
 \title{Linechart}
 \usage{
-plot_linechart(df, var)
+plot_linechart(df, var, date, y1, y2, y3)
 }
 \arguments{
 \item{df}{The data used in producing line chart.}
 
 \item{var}{A character vector.}
+
+\item{date}{A date vector.}
+
+\item{y1}{The first y variable.}
+
+\item{y2}{The second y variable.}
+
+\item{y3}{The third y variable.}
 }
 \value{
 Linechart
@@ -28,7 +36,7 @@ data <- coronavirus \%>\%
  dplyr::filter(country \%in\% c("US", "India", "Austria")) \%>\%
  tidyr::pivot_wider(names_from = type, values_from = cases)
 
- plot_linechart(data, "US")
+ plot_linechart(data, "US", date, confirmed, recovered, death)
 
 
 
