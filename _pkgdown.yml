@@ -19,6 +19,9 @@ navbar:
       href: https://awsome-number-story.netlify.app/
 
 reference:
+- title: "2019 population data"
+  contents:
+  - pop_data
 - title: "Launching Shiny app"
   contents:
   - launch_app

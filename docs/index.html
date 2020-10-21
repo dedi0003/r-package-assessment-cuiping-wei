@@ -122,6 +122,8 @@
 <code><a href="reference/plot_highchart.html">plot_highchart()</a></code> to create a interactive highchart plot.</li>
 <li>
 <code><a href="reference/plot_linechart.html">plot_linechart()</a></code> to create a line plot.</li>
+<li>
+<code>pop_data</code> to obtain 2019 population data for 221 countries.</li>
 </ul>
 <p>If you would like to have a tutorial for using this Shiny App, please visit this <a href="https://etc5523-2020.github.io/r-package-assessment-cuiping-wei/articles/app.html">article</a>.</p>
 </div>
@@ -134,30 +136,46 @@
 <h2 class="hasAnchor">
 <a href="#star2-example" class="anchor"></a><span class="emoji" data-emoji="star2">🌟</span> Example</h2>
 <p>There are some basic examples which show you how to explore <code>covid19</code> package:</p>
+<div id="population-data" class="section level4">
+<h4 class="hasAnchor">
+<a href="#population-data" class="anchor"></a>Population data</h4>
+<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="kw">library</span>(covid19)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="kw">library</span>(magrittr)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>pop_data <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a><span class="st">  </span><span class="kw">head</span>(<span class="dv">5</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a><span class="co">#&gt; # A tibble: 5 x 2</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a><span class="co">#&gt;   country     population</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a><span class="co">#&gt;   &lt;chr&gt;            &lt;dbl&gt;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a><span class="co">#&gt; 1 Aruba           106314</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a><span class="co">#&gt; 2 Afghanistan   38041754</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true"></a><span class="co">#&gt; 3 Angola        31825295</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true"></a><span class="co">#&gt; 4 Albania        2854191</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true"></a><span class="co">#&gt; 5 Andorra          77142</span></span></code></pre></div>
+</div>
 <div id="launch-shiny-app" class="section level4">
 <h4 class="hasAnchor">
 <a href="#launch-shiny-app" class="anchor"></a>Launch Shiny app</h4>
-<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="co">## launch Shiny app</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="kw">library</span>(covid19)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a><span class="kw">launch_app</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="co">## launch Shiny app</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a><span class="kw">library</span>(covid19)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a><span class="kw">launch_app</span>()</span></code></pre></div>
 </div>
 <div id="creating-highchart-plot" class="section level4">
 <h4 class="hasAnchor">
 <a href="#creating-highchart-plot" class="anchor"></a>Creating highchart plot</h4>
-<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="co">## create a highchart plot</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a><span class="kw">library</span>(magrittr)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a><span class="kw">library</span>(dplyr)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a><span class="kw">library</span>(coronavirus)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a><span class="kw">library</span>(covid19)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true"></a><span class="kw">data</span>(<span class="st">"coronavirus"</span>)</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true"></a>data &lt;-<span class="st"> </span>coronavirus <span class="op">%&gt;%</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true"></a><span class="st">        </span><span class="kw">filter</span>(date <span class="op">&gt;=</span><span class="st"> '2020-10-10'</span>) <span class="op">%&gt;%</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true"></a><span class="st">        </span><span class="kw">filter</span>(country <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">"Afghanistan"</span>, <span class="st">"Liberia"</span>, <span class="st">"Austria"</span>)) <span class="op">%&gt;%</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true"></a><span class="st">        </span><span class="kw">filter</span>(type <span class="op">==</span><span class="st"> "confirmed"</span>)</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true"></a></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true"></a><span class="kw">plot_highchart</span>(<span class="dt">df =</span> data, <span class="dt">x =</span> date, <span class="dt">y =</span> cases, <span class="dt">group =</span> country, <span class="dt">ylabs =</span> <span class="st">'Confirmed cases'</span>,</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true"></a>               <span class="dt">xlabs =</span> <span class="st">'Date'</span>, <span class="dt">title =</span> <span class="st">'COVID-19 confirmed cases'</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="co">## create a highchart plot</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a><span class="kw">library</span>(magrittr)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a><span class="kw">library</span>(coronavirus)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a><span class="kw">library</span>(covid19)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a><span class="kw">data</span>(<span class="st">"coronavirus"</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true"></a>data &lt;-<span class="st"> </span>coronavirus <span class="op">%&gt;%</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true"></a><span class="st">        </span><span class="kw">filter</span>(date <span class="op">&gt;=</span><span class="st"> '2020-10-10'</span> <span class="op">&amp;</span><span class="st"> </span>date <span class="op">&lt;=</span><span class="st"> '2020-10-16'</span>) <span class="op">%&gt;%</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true"></a><span class="st">        </span><span class="kw">filter</span>(country <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">"Afghanistan"</span>, <span class="st">"Liberia"</span>, <span class="st">"Austria"</span>)) <span class="op">%&gt;%</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true"></a><span class="st">        </span><span class="kw">filter</span>(type <span class="op">==</span><span class="st"> "confirmed"</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true"></a><span class="kw">plot_highchart</span>(<span class="dt">df =</span> data, <span class="dt">x =</span> date, <span class="dt">y =</span> cases, <span class="dt">group =</span> country, <span class="dt">ylabs =</span> <span class="st">'Confirmed cases'</span>,</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true"></a>               <span class="dt">xlabs =</span> <span class="st">'Date'</span>, <span class="dt">title =</span> <span class="st">'COVID-19 confirmed cases'</span>)</span></code></pre></div>
 <p><img src="reference/figures/README-highchart-1.png"></p>
 </div>
 </div>

@@ -10,3 +10,4 @@
 ^docs$
 ^pkgdown$
 ^\.Rproj\.user$
+^data-raw$
