@@ -132,7 +132,7 @@
     <p>This function creates a line chart.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>plot_linechart</span><span class='op'>(</span><span class='va'>df</span>, <span class='va'>var</span>, <span class='va'>date</span>, <span class='va'>y1</span>, <span class='va'>y2</span>, <span class='va'>y3</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>plot_linechart</span><span class='op'>(</span><span class='va'>df</span>, <span class='va'>date</span>, <span class='va'>y1</span>, <span class='va'>y2</span>, <span class='va'>y3</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -140,10 +140,6 @@
     <tr>
       <th>df</th>
       <td><p>The data used in producing line chart.</p></td>
-    </tr>
-    <tr>
-      <th>var</th>
-      <td><p>A character vector.</p></td>
     </tr>
     <tr>
       <th>date</th>
@@ -175,10 +171,10 @@
 <span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"coronavirus"</span><span class='op'>)</span>
 <span class='va'>data</span> <span class='op'>&lt;-</span> <span class='va'>coronavirus</span> <span class='op'>%&gt;%</span>
  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>date</span> <span class='op'>&gt;=</span> <span class='st'>'2020-09-10'</span> <span class='op'>&amp;</span> <span class='va'>date</span> <span class='op'>&lt;=</span> <span class='st'>'2020-10-10'</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
- <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>country</span> <span class='op'>%in%</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"US"</span>, <span class='st'>"India"</span>, <span class='st'>"Austria"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+ <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>country</span> <span class='op'>==</span> <span class='st'>"US"</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
  <span class='fu'>tidyr</span><span class='fu'>::</span><span class='fu'><a href='https://tidyr.tidyverse.org/reference/pivot_wider.html'>pivot_wider</a></span><span class='op'>(</span>names_from <span class='op'>=</span> <span class='va'>type</span>, values_from <span class='op'>=</span> <span class='va'>cases</span><span class='op'>)</span>
 
- <span class='fu'>plot_linechart</span><span class='op'>(</span><span class='va'>data</span>, <span class='st'>"US"</span>, <span class='va'>date</span>, <span class='va'>confirmed</span>, <span class='va'>recovered</span>, <span class='va'>death</span><span class='op'>)</span>
+ <span class='fu'>plot_linechart</span><span class='op'>(</span><span class='va'>data</span>, <span class='va'>date</span>, <span class='va'>confirmed</span>, <span class='va'>recovered</span>, <span class='va'>death</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span class='error'>Error in FUN(X[[i]], ...): object 'confirmed' not found</span></div><div class='img'><img src='plot_linechart-1.png' alt='' width='700' height='433' /></div><div class='input'>
 
 
